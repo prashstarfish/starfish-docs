@@ -1,5 +1,6 @@
 {
-  "framework": null,
+  "framework": "vitepress",
   "buildCommand": "npx vitepress build",
-  "outputDirectory": ".vitepress/dist"
+  "outputDirectory": ".vitepress/dist",
+  "cleanUrls": true
 }
