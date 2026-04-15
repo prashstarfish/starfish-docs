@@ -93,7 +93,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/cainandanton" },
+      { icon: "github", link: "https://github.com/cainandanton/starfish-releases/releases" },
     ],
 
     search: {
