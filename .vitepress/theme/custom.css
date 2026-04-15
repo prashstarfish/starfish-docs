@@ -1,0 +1,86 @@
+/**
+ * Starfish Docs — Gray/Black theme override.
+ * Keeps VitePress defaults for light mode untouched,
+ * overrides only the dark palette.
+ */
+
+:root {
+  /* Brand accent — subtle cool gray-blue */
+  --vp-c-brand-1: #a0aec0;
+  --vp-c-brand-2: #8b9bb5;
+  --vp-c-brand-3: #718096;
+  --vp-c-brand-soft: rgba(160, 174, 192, 0.14);
+}
+
+.dark {
+  /* Background layers */
+  --vp-c-bg: #0f0f0f;
+  --vp-c-bg-alt: #141414;
+  --vp-c-bg-elv: #1a1a1a;
+  --vp-c-bg-soft: #1a1a1a;
+
+  /* Text */
+  --vp-c-text-1: #e2e8f0;
+  --vp-c-text-2: #a0aec0;
+  --vp-c-text-3: #718096;
+
+  /* Borders */
+  --vp-c-border: #2d2d2d;
+  --vp-c-divider: #252525;
+  --vp-c-gutter: #1a1a1a;
+
+  /* Brand in dark mode */
+  --vp-c-brand-1: #a0aec0;
+  --vp-c-brand-2: #8b9bb5;
+  --vp-c-brand-3: #718096;
+  --vp-c-brand-soft: rgba(160, 174, 192, 0.14);
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #0f0f0f;
+
+  /* Nav */
+  --vp-nav-bg-color: #0f0f0f;
+
+  /* Code blocks */
+  --vp-code-block-bg: #141414;
+  --vp-code-line-highlight-color: rgba(160, 174, 192, 0.08);
+
+  /* Home hero */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #e2e8f0 0%, #718096 100%);
+  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(160, 174, 192, 0.12) 0%, transparent 70%);
+  --vp-home-hero-image-filter: blur(56px);
+}
+
+/* Sidebar active item — subtle highlight */
+.dark .VPSidebarItem.is-active > .item .link > .text {
+  color: #e2e8f0;
+}
+
+/* Custom badge styling */
+.dark .VPBadge.tip {
+  background-color: rgba(160, 174, 192, 0.14);
+  color: #a0aec0;
+}
+
+/* Image styling for screenshots */
+.dark img {
+  border-radius: 8px;
+  border: 1px solid #2d2d2d;
+}
+
+/* Tip/warning containers */
+.dark .custom-block.tip {
+  border-color: #2d3748;
+  background-color: rgba(45, 55, 72, 0.3);
+}
+
+.dark .custom-block.warning {
+  border-color: #744210;
+  background-color: rgba(116, 66, 16, 0.15);
+}
+
+.dark .custom-block.danger {
+  border-color: #9b2c2c;
+  background-color: rgba(155, 44, 44, 0.15);
+}

@@ -1,0 +1,17 @@
+{
+  "name": "starfish-solutions-docs",
+  "version": "1.0.0",
+  "description": "Starfish Solutions documentation",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "Starfish Solutions",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
