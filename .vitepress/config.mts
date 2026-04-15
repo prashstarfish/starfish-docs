@@ -4,6 +4,7 @@ export default defineConfig({
   title: "Starfish",
   description: "The AI workspace for teams — documentation and guides",
   srcDir: "docs",
+  outDir: ".vitepress/dist",
   cleanUrls: true,
 
   head: [
