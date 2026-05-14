@@ -23,7 +23,7 @@ An automation is a saved configuration with:
 - **Permission mode** — fixed to **Full Access** for unattended runs (no human to approve each tool call).
 - **Catch-up on launch** — when on, missed runs (Mac was asleep, app was closed) fire once on launch.
 
-Each fire creates a real chat session you can open and inspect. Sessions show the `🤖 [Automation name]` prefix in the sidebar.
+Each fire creates a real chat session you can open and inspect. Sessions are labeled with the automation's name in the sidebar so they're easy to tell apart from regular chats.
 
 ## When to use one
 

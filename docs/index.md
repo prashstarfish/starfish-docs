@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: Starfish
-  text: The AI Workspace for Teams
-  tagline: One interface for all your tools. Chat with AI that can actually do things — manage tasks, read emails, edit designs, deploy code, run scheduled jobs, generate media, and edit video.
+  text: The AI workspace that <em>actually does the work</em>.
+  tagline: One interface. Every tool. An AI agent that can read your inbox, ship code, run scheduled jobs, generate media, and edit video — without you switching tabs.
   actions:
     - theme: brand
       text: Get Started
@@ -14,31 +14,58 @@ hero:
       link: /integrations/overview
 
 features:
-  - icon: 🤖
-    title: 15+ LLM Models
-    details: Claude, GPT, Gemini, Grok, and more — all routed through one Gateway with a single key. Auto mode picks the best model for each message.
-  - icon: 🔗
-    title: 13+ Integrations
-    details: Google Workspace, ClickUp, Figma, GitHub, Facebook Ads, Vercel, and more. Your AI can actually use these tools, not just talk about them.
-  - icon: 🗂️
-    title: Workspaces & Memory
-    details: Group chats into projects and folders. Custom instructions, knowledge files, and a self-maintaining memory document the AI consults on every turn.
-  - icon: ⏰
-    title: Automations
-    details: Save a prompt, set a schedule, and let it run. Daily standup digests, hourly campaign checks, weekly content sweeps — every fire creates a chat session you can review.
-  - icon: 🎨
-    title: Image & Video Generation
-    details: Generate from a dedicated studio, or let the chat agent do it inline. Multi-turn refinement, the latest Nano Banana / Seedream / Veo / Kling models.
-  - icon: ✂️
-    title: Starcut Video Editor
-    details: Trim, reframe for vertical, add captions, mix background music, and let AI follow the subject through the shot. Bundled ffmpeg, runs entirely on your machine.
-  - icon: 🖥️
-    title: Built-in Terminal & Browser
-    details: Full terminal emulator and web browser embedded in the workspace. Run commands, browse the web, test generated code — without leaving the app.
-  - icon: 🛡️
-    title: Permission System
-    details: Every destructive action requires your approval. Path guards block access to sensitive directories. You stay in control.
-  - icon: 📦
-    title: Agent Templates
-    details: Browse a catalog of pre-built agents — Chief of Staff, Paid Ads Analyst, Client Reporting Analyst, more — and install with one click.
+  - icon:
+      src: /icons/bot.svg
+      width: 28
+      height: 28
+    title: 15+ language models
+    details: Claude, GPT, Gemini, Grok, Kimi — all routed through one Gateway with a single key. Auto mode picks the best one for each message.
+  - icon:
+      src: /icons/cable.svg
+      width: 28
+      height: 28
+    title: 13+ live integrations
+    details: Google Workspace, ClickUp, Figma, GitHub, Facebook Ads, Vercel. Your AI can actually use these tools — not just talk about them.
+  - icon:
+      src: /icons/folder-tree.svg
+      width: 28
+      height: 28
+    title: Workspaces with memory
+    details: Group chats into projects and folders. Custom instructions, knowledge files, and a self-maintaining memory document the AI reads on every turn.
+  - icon:
+      src: /icons/clock.svg
+      width: 28
+      height: 28
+    title: Automations on a schedule
+    details: Save a prompt, set a cron, walk away. Daily standup digests, hourly campaign checks, weekly content sweeps. Every fire creates a reviewable chat session.
+  - icon:
+      src: /icons/sparkles.svg
+      width: 28
+      height: 28
+    title: Image &amp; video generation
+    details: A dedicated studio, or inline from chat. Multi-turn refinement on the latest Nano Banana, Seedream, Veo, and Kling models.
+  - icon:
+      src: /icons/scissors.svg
+      width: 28
+      height: 28
+    title: Starcut video editor
+    details: Trim, reframe for vertical, burn captions, mix background music. Smart-pan lets AI follow the subject through the shot. ffmpeg bundled, runs on-device.
+  - icon:
+      src: /icons/terminal.svg
+      width: 28
+      height: 28
+    title: Built-in terminal &amp; browser
+    details: Full xterm.js emulator and a Chromium browser embedded in the workspace. Run commands, browse the web, test generated code — without leaving the app.
+  - icon:
+      src: /icons/shield.svg
+      width: 28
+      height: 28
+    title: Permissions you control
+    details: Every destructive action asks first. Path guards block access to sensitive directories. Full Access mode is one toggle away when you trust the agent.
+  - icon:
+      src: /icons/package.svg
+      width: 28
+      height: 28
+    title: Agent templates
+    details: A growing catalog of pre-built agents — Chief of Staff, Paid Ads Analyst, Client Reporting Analyst — installable with one click and forkable on edit.
 ---

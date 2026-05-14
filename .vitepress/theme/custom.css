@@ -1,86 +1,276 @@
 /**
- * Starfish Docs — Gray/Black theme override.
- * Keeps VitePress defaults for light mode untouched,
- * overrides only the dark palette.
+ * Starfish Docs — custom theme.
+ *
+ * Palette comes from the Starfish brand:
+ *   bg       #080808 (near-black)
+ *   text     #F0EBE1 (warm white)
+ *   yellow   #ffdc00 (primary accent)
+ *   blue     #67c5ed (secondary accent)
+ *
+ * No gradients. No translucent washes. Solid colours, generous space,
+ * stroke icons.
+ *
+ * Typography stack (loaded via Google Fonts in the document head):
+ *   Space Grotesk  — UI / body
+ *   DM Serif Display italic — emphasis word in the hero
+ *   Manrope        — running text
+ *   JetBrains Mono — code
  */
 
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
 :root {
-  /* Brand accent — subtle cool gray-blue */
-  --vp-c-brand-1: #a0aec0;
-  --vp-c-brand-2: #8b9bb5;
-  --vp-c-brand-3: #718096;
-  --vp-c-brand-soft: rgba(160, 174, 192, 0.14);
+  /* Light mode (rarely seen — appearance: dark in config) keeps defaults. */
+  --vp-c-brand-1: #ffdc00;
+  --vp-c-brand-2: #ffd300;
+  --vp-c-brand-3: #e6c500;
+  --vp-c-brand-soft: rgba(255, 220, 0, 0.14);
+
+  /* Typography */
+  --vp-font-family-base: "Space Grotesk", "Manrope", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+  --vp-font-family-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 }
 
 .dark {
-  /* Background layers */
-  --vp-c-bg: #0f0f0f;
-  --vp-c-bg-alt: #141414;
-  --vp-c-bg-elv: #1a1a1a;
-  --vp-c-bg-soft: #1a1a1a;
+  /* Background layers — solid steps, no near-identical greys */
+  --vp-c-bg: #080808;
+  --vp-c-bg-alt: #0d0d0d;
+  --vp-c-bg-elv: #131313;
+  --vp-c-bg-soft: #111111;
 
-  /* Text */
-  --vp-c-text-1: #e2e8f0;
-  --vp-c-text-2: #a0aec0;
-  --vp-c-text-3: #718096;
+  /* Text — warm white throughout, never pure white */
+  --vp-c-text-1: #f0ebe1;
+  --vp-c-text-2: #c2bdb4;
+  --vp-c-text-3: #82807a;
 
   /* Borders */
-  --vp-c-border: #2d2d2d;
-  --vp-c-divider: #252525;
-  --vp-c-gutter: #1a1a1a;
+  --vp-c-border: #2a2a2a;
+  --vp-c-divider: #1c1c1c;
+  --vp-c-gutter: #0d0d0d;
 
-  /* Brand in dark mode */
-  --vp-c-brand-1: #a0aec0;
-  --vp-c-brand-2: #8b9bb5;
-  --vp-c-brand-3: #718096;
-  --vp-c-brand-soft: rgba(160, 174, 192, 0.14);
+  /* Brand in dark — yellow as the primary, blue reserved for hover/links */
+  --vp-c-brand-1: #ffdc00;
+  --vp-c-brand-2: #ffe96b;
+  --vp-c-brand-3: #b69a00;
+  --vp-c-brand-soft: rgba(255, 220, 0, 0.12);
 
-  /* Sidebar */
-  --vp-sidebar-bg-color: #0f0f0f;
-
-  /* Nav */
-  --vp-nav-bg-color: #0f0f0f;
+  /* Sidebar / nav */
+  --vp-sidebar-bg-color: #080808;
+  --vp-nav-bg-color: #080808;
 
   /* Code blocks */
-  --vp-code-block-bg: #141414;
-  --vp-code-line-highlight-color: rgba(160, 174, 192, 0.08);
+  --vp-code-block-bg: #0d0d0d;
+  --vp-code-line-highlight-color: rgba(255, 220, 0, 0.08);
 
-  /* Home hero */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #e2e8f0 0%, #718096 100%);
-  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(160, 174, 192, 0.12) 0%, transparent 70%);
-  --vp-home-hero-image-filter: blur(56px);
+  /* Hero — no background blob, no gradient name */
+  --vp-home-hero-name-color: #f0ebe1;
+  --vp-home-hero-name-background: none;
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
 }
 
-/* Sidebar active item — subtle highlight */
+/* ── Hero ────────────────────────────────────────────────────────────────
+ * Larger heading, italic serif emphasis on the keyphrase ("actually does the
+ * work"), generous line-height. Buttons keep VitePress defaults but recolor
+ * to brand.
+ */
+
+.VPHomeHero .name {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 1;
+}
+
+.VPHomeHero .text {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.15;
+  margin-top: 0.5rem;
+  color: var(--vp-c-text-1);
+}
+
+/* The <em> inside hero.text renders italic via DM Serif Display — that's the
+ * one place the page uses a serif. Keeps the "elegant emphasis" beat without
+ * applying it everywhere. */
+.VPHomeHero .text em,
+.VPHomeHero .text i {
+  font-family: "DM Serif Display", "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--vp-c-brand-1); /* yellow */
+}
+
+.VPHomeHero .tagline {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.55;
+  color: var(--vp-c-text-2);
+  max-width: 620px;
+}
+
+/* Hero CTA buttons — solid yellow primary, ghost secondary. No rounded
+ * blobs; the existing button shape is fine. */
+.VPHomeHero .VPButton.brand {
+  background-color: #ffdc00;
+  border-color: #ffdc00;
+  color: #080808;
+  font-weight: 600;
+}
+.VPHomeHero .VPButton.brand:hover {
+  background-color: #ffe96b;
+  border-color: #ffe96b;
+  color: #080808;
+}
+.VPHomeHero .VPButton.alt {
+  background-color: transparent;
+  border-color: var(--vp-c-border);
+  color: var(--vp-c-text-1);
+}
+.VPHomeHero .VPButton.alt:hover {
+  border-color: #67c5ed;
+  color: #67c5ed;
+}
+
+/* ── Features grid ────────────────────────────────────────────────────────
+ * Vault rule: avoid the stock 3-up uniform card grid. We KEEP the grid but
+ * style cards as borderless slabs with negative space and an icon-driven
+ * hover. The card itself is just a left-border line — no rounded corners,
+ * no shadow, just typography. Asymmetric padding so cards don't all read
+ * the same.
+ */
+
+.VPHomeFeatures {
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.VPHomeFeatures .items {
+  gap: 0;
+}
+
+/* Force a 3-column layout that uses lines as dividers, not card outlines.
+ * Single-column on small viewports. */
+.VPHomeFeatures .item {
+  padding: 28px 28px 28px 28px;
+  border-left: 1px solid var(--vp-c-border);
+  border-bottom: 1px solid var(--vp-c-border);
+}
+
+@media (min-width: 768px) {
+  .VPHomeFeatures .item.grid-6 {
+    width: calc(100% / 3);
+  }
+  /* Remove redundant left borders on the start of each row. The grid
+   * is 3-wide so positions 1, 4, 7 get no left border. */
+  .VPHomeFeatures .item.grid-6:nth-child(3n + 1) {
+    border-left: none;
+  }
+  /* Last row keeps its bottom border for visual closure. */
+}
+
+.VPHomeFeatures .VPFeature {
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.VPHomeFeatures .VPFeature .box {
+  background: transparent;
+  border: none;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.VPHomeFeatures .VPFeature .icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  background: transparent;
+  margin-bottom: 8px;
+  font-size: 0;
+}
+
+.VPHomeFeatures .VPFeature .icon img {
+  display: block;
+  border: none;
+  border-radius: 0;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.VPHomeFeatures .VPFeature .title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--vp-c-text-1);
+  margin: 0;
+}
+
+.VPHomeFeatures .VPFeature .details {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--vp-c-text-2);
+  margin: 0;
+}
+
+/* Hover — yellow tint on the icon + tiny translate. The whole row "wakes
+ * up" without a heavy hover box. */
+.VPHomeFeatures .VPFeature:hover {
+  background-color: rgba(255, 220, 0, 0.025);
+}
+.VPHomeFeatures .VPFeature:hover .icon img {
+  /* Recolour the SVG stroke to yellow via filter — works for hardcoded
+   * stroke="#F0EBE1" without needing per-theme assets. The filter sequence
+   * inverts the warm white to near-black, then hue-rotates to yellow. */
+  filter: brightness(0) saturate(100%) invert(82%) sepia(43%) saturate(2200%)
+    hue-rotate(355deg) brightness(102%) contrast(105%);
+  transform: translateX(2px);
+}
+.VPHomeFeatures .VPFeature:hover .title {
+  color: var(--vp-c-brand-1);
+}
+
+/* ── Nav / sidebar / images — small polish ──────────────────────────────── */
+
 .dark .VPSidebarItem.is-active > .item .link > .text {
-  color: #e2e8f0;
+  color: var(--vp-c-brand-1);
 }
 
-/* Custom badge styling */
-.dark .VPBadge.tip {
-  background-color: rgba(160, 174, 192, 0.14);
-  color: #a0aec0;
-}
-
-/* Image styling for screenshots */
 .dark img {
-  border-radius: 8px;
-  border: 1px solid #2d2d2d;
+  border-radius: 4px;
+  border: 1px solid var(--vp-c-border);
 }
 
-/* Tip/warning containers */
+.dark .VPBadge.tip {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
 .dark .custom-block.tip {
-  border-color: #2d3748;
-  background-color: rgba(45, 55, 72, 0.3);
+  border-color: #2a2a2a;
+  background-color: rgba(255, 220, 0, 0.04);
 }
-
 .dark .custom-block.warning {
-  border-color: #744210;
-  background-color: rgba(116, 66, 16, 0.15);
+  border-color: #5a4810;
+  background-color: rgba(255, 220, 0, 0.06);
 }
-
 .dark .custom-block.danger {
-  border-color: #9b2c2c;
-  background-color: rgba(155, 44, 44, 0.15);
+  border-color: #7a2222;
+  background-color: rgba(155, 44, 44, 0.12);
 }
