@@ -73,6 +73,14 @@ If you navigate away from a session that is still running, it continues on the s
 
 Sessions with pending permission prompts show an amber left border and "Needs input" label in the sidebar.
 
+### Attaching a chat to a project or folder
+
+The chat input has a **Workspace picker** chip beside the agent selector. Click it to choose a project (and optionally a folder) for the next chat you start. The picker is sticky — once you pick a target, follow-up new-chats default to it until you clear the chip.
+
+For an existing chat, hover its row in the sidebar, click the three-dot menu, and choose **Move to… → \<Project\>** or **\<Project\> → \<Folder\>**.
+
+When a chat is attached to a project, the system prompt picks up the project's instructions, knowledge document, and uploaded knowledge files. See [Workspace](/workspace/overview) for the full feature.
+
 ## Prompt History
 
 Press **Arrow Up** in the composer to scroll through your previous messages in the current session. Press **Arrow Down** to go forward. The history stores up to 50 messages per session.
@@ -109,6 +117,14 @@ Below the composer, quick action pills provide one-click access to common workfl
 - **Plan New Idea** -- enters [Plan Mode](/chat/plan-mode) for structured planning before execution.
 - **Prompt Builder** -- opens the inline [Prompt Builder](/chat/prompt-builder) panel above the composer.
 - **Open Editor Window** -- toggles the right-side panel (browser, terminal, artifacts, plan).
+
+## Toolbar Dropdowns
+
+The composer toolbar has three dropdowns that control what the agent can do this turn:
+
+- **Agents** — pick one or more sub-agents to delegate to via the Task tool. See [Agents](/agents/overview).
+- **Apps** — pick which connected integrations (Google Workspace, ClickUp, etc.) the agent can use.
+- **Media** — toggle in-chat **Image generation** and **Video generation**. Off by default — generation has a real per-image/per-clip cost so we don't enable it without your say-so. See [Image Generation](/media/image-generation) and [Video Generation](/media/video-generation) for the chat-tool flow.
 
 ## Message Rendering
 

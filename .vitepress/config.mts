@@ -17,8 +17,10 @@ export default defineConfig({
 
     nav: [
       { text: "Guide", link: "/getting-started/introduction" },
+      { text: "Workspace", link: "/workspace/overview" },
       { text: "Integrations", link: "/integrations/overview" },
       { text: "Tools", link: "/tools/terminal" },
+      { text: "Legal", link: "/legal/terms" },
     ],
 
     sidebar: [
@@ -41,6 +43,16 @@ export default defineConfig({
           { text: "Prompt Builder", link: "/chat/prompt-builder" },
           { text: "Permissions & Safety", link: "/chat/permissions" },
           { text: "Artifacts", link: "/chat/artifacts" },
+        ],
+      },
+      {
+        text: "Workspace",
+        items: [
+          { text: "Overview", link: "/workspace/overview" },
+          { text: "Projects", link: "/workspace/projects" },
+          { text: "Folders", link: "/workspace/folders" },
+          { text: "Knowledge Files", link: "/workspace/knowledge-files" },
+          { text: "Project & Folder Memory", link: "/workspace/memory" },
         ],
       },
       {
@@ -79,10 +91,18 @@ export default defineConfig({
         ],
       },
       {
-        text: "Media Generation",
+        text: "Media",
         items: [
           { text: "Image Generation", link: "/media/image-generation" },
           { text: "Video Generation", link: "/media/video-generation" },
+          { text: "Starcut Video Editor", link: "/media/starcut" },
+          { text: "Soundtrack Library", link: "/media/soundtrack" },
+        ],
+      },
+      {
+        text: "Automations",
+        items: [
+          { text: "Overview", link: "/automations/overview" },
         ],
       },
       {
@@ -90,6 +110,12 @@ export default defineConfig({
         items: [
           { text: "General Settings", link: "/settings/general" },
           { text: "Keyboard Shortcuts", link: "/settings/keyboard-shortcuts" },
+        ],
+      },
+      {
+        text: "Legal",
+        items: [
+          { text: "Terms & Conditions", link: "/legal/terms" },
         ],
       },
     ],

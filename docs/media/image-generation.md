@@ -4,40 +4,69 @@ outline: deep
 
 # Image Generation
 
-Create images from text descriptions directly within Starfish. Choose from multiple models depending on your speed and quality needs.
-
+Create images from text descriptions directly within Starfish. There are two ways to generate: the dedicated **Image Gen studio** for quick one-off images, and the **in-chat image tool** for images that need conversation context (reference an earlier idea, iterate with the agent, etc.).
 
 ## Available Models
 
-| Model | Strengths | Best For |
-|-------|-----------|----------|
-| **nano-banana-pro** | Fast generation | Quick iterations, drafts, exploring ideas |
-| **gpt-image** | Balanced quality and speed | General-purpose image creation |
-| **seedream** | Highest quality output | Final assets, detailed illustrations |
+| Model | Backend | Strengths | Best For |
+|-------|---------|-----------|----------|
+| **Nano Banana 2** | Google `gemini-3-pro-image` | Fast, follows instructions well | Default — quick iterations, marketing creative |
+| **Nano Banana** | Google `gemini-2.5-flash-image` | Cheaper and faster than NB2 | High-volume drafts, exploring ideas |
+| **Seedream 4.5** | ByteDance `seedream-4.5` | Photorealism, fine detail | Final assets, product shots |
+| **GPT Image 2** | OpenAI `gpt-image-2` | Strong typography & illustration | Logos, posters, illustrative graphics |
 
-## How to Use
+All four route through the Vercel AI Gateway with a single key — no per-provider account needed.
 
-1. **Create a session**: Click the Image Generation option in the sidebar to start a new session
-2. **Describe your image**: Type a natural language description of what you want
-3. **Upload a reference** *(optional)*: Attach an image for image-to-image editing or style matching
-4. **Select model and quality**: Choose the model that fits your use case
-5. **Generate**: Click generate and wait for the result
+## Image Gen Studio
 
+The dedicated studio lives at **Image Gen** in the sidebar. It's the fastest path for a one-off image with optional reference inputs.
 
-## Multi-Turn Refinement
+1. Click **Image Gen** in the sidebar to open or resume a session.
+2. Type a natural language description of what you want.
+3. *(Optional)* Drag in one or more reference images for editing or style matching — up to 4 per turn.
+4. Pick a model from the dropdown.
+5. Click **Generate**.
 
-Image generation sessions support multi-turn conversations. After generating an image, you can:
+Each prompt becomes a turn in the session. Sessions are listed in the sidebar like chat sessions and persist across launches.
+
+### Multi-Turn Refinement
+
+Image Gen sessions are conversational. After generating, you can:
 
 - Describe specific changes ("make the background darker")
 - Request variations ("same composition but in watercolor style")
 - Adjust details ("remove the text in the top-left corner")
 
-The AI retains context from previous turns, so you refine without starting over.
+The model sees the prior turns' images and prompts as context, so you refine without starting over.
 
-## Saving Images
+### Save to a Folder
 
-Generated images can be saved to your local filesystem. Click the save button on any generated image and choose the destination folder.
+Click **Save to folder** on a session to pick a destination on your disk (uses the macOS File System Access API). Every subsequent generation in that session is auto-saved to that folder, plus any reference images you uploaded.
 
-## Backend
+### Continue in Chat
 
-Image generation is powered by [FAL.ai](https://fal.ai). All processing happens on FAL's infrastructure -- no local GPU required.
+Hover any generated image and click **Continue in chat**. Starfish opens a fresh chat session with the image pre-attached as a multimodal input — the chat agent can see the image and reason about it (suggest edits, write copy that pairs with it, etc.).
+
+## In-Chat Image Generation
+
+The chat agent can also generate images directly in a conversation. Useful when image creation is part of a bigger task — "summarize this email thread, then design a banner for the campaign" works in one chat.
+
+### Enabling it
+
+Click the **Media** dropdown in the chat composer's bottom toolbar (next to **Agents** and **Apps**) and toggle **Image** on. Off by default — generation has a real per-image cost, so we don't enable it without your say-so.
+
+Once on, the agent has access to a `generate_image` tool it can call when your message clearly asks for an image.
+
+### How it shows up
+
+When the agent generates an image, you'll see it inline in the chat — same renderer as image-attached messages. The image is also saved as an **Artifact** so it shows up in the **Media** (`/designs`) library alongside HTML/PDF/CSV artifacts the agent has produced.
+
+## Automations
+
+If you've added the image toggle to an [Automation](/automations/overview), the scheduled agent run can generate images on its own (e.g. "every Monday, draft a social card for this week's announcement").
+
+## Storage
+
+- Generated bytes are saved to a local IndexedDB store keyed by session — survives reloads, no network round-trip on re-view.
+- When the agent generates an image in chat, the bytes are written to the local artifacts table (SQLite) and the image is reachable from `/designs`.
+- Nothing leaves your machine after generation except the round-trip to the Gateway during creation.

@@ -54,3 +54,28 @@ Manage the AI agents and knowledge packs available in your workspace:
 - **Remove** packs you no longer need
 
 Knowledge packs define specialized agents with domain-specific instructions and tools.
+
+## Workspace
+
+Settings that affect [Projects, Folders, and Knowledge Files](/workspace/overview).
+
+### Auto-rename uploaded files
+
+**Default: on.**
+
+When you upload a file to a project's or folder's knowledge files, Starfish runs Claude Haiku 4.5 in the background to produce a description and — when the original filename is meaningless — a better one.
+
+| Toggle | Behaviour |
+|--------|-----------|
+| **On** (default) | Files with garbage names (digits, UUIDs, `IMG_*`, `Screenshot *`, `WhatsApp Image *`, etc.) are renamed automatically. The original filename is preserved internally; hover the row to see it. |
+| **Off** | The analyzer still proposes a rename, but you have to click **Accept** on the suggested-rename banner before it applies. |
+
+Files with sensible names (`logo1.png`, `brand-guide.pdf`) are never auto-renamed regardless of the setting.
+
+See [Knowledge Files](/workspace/knowledge-files) for the full description of how analysis and renaming work.
+
+## Designs
+
+### Auto-open preview
+
+Automatically open the design panel when a new file is generated. When disabled, you can still open the panel manually.
